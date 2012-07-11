@@ -1,10 +1,9 @@
 module Travelport::Response
-	class Base
-		
-		attr_writer :raw_content
+  class Base
 
-		def initialize(raw_content)
-			self.raw_content = @raw_content
-		end
-	end
+    def initialize(raw_content)
+      @raw_content = raw_content
+      process unless @raw_content.nil?
+    end
+  end
 end
