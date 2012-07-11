@@ -5,4 +5,10 @@ module Travelport::Model::AttributeMethods
 			[var.to_s.gsub("@", ""), instance_variable_get(var)] unless instance_variable_get(var).nil?
 		end.compact]
 	end
+
+  def update_attributes(hash)
+    hash.each do |key, val|
+      self.send("#{key.to_s.gsub('@', '')}=", val)
+    end
+  end
 end
