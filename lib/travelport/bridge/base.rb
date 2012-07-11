@@ -15,7 +15,7 @@ module Travelport::Bridge
       client.request(req_obj.request_name, req_obj.request_attributes) do
         http.headers['SOAPAction'] = ""
         soap.body = req_obj.request_body
-      end
+      end.body
     end
 
     protected
